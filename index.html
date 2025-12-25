@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>المصحح الآلي الذكي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Cairo', 'sans-serif'],
+            },
+            colors: {
+              primary: '#4f46e5', // Indigo 600 - Modern Primary
+              primaryHover: '#4338ca', // Indigo 700
+              secondary: '#0ea5e9', // Sky 500
+              accent: '#f59e0b', // Amber 500
+              dark: '#0f172a', // Slate 900
+              surface: '#ffffff',
+              background: '#f8fafc', // Slate 50
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Cairo', sans-serif;
+        background-color: #f8fafc;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      
+      /* Screen Styles */
+      .print-only {
+        display: none !important;
+      }
+
+      /* Print Styles */
+      @media print {
+        @page {
+          size: A4;
+          margin: 0;
+        }
+        
+        html, body {
+          height: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          overflow: hidden !important;
+          background-color: white !important;
+        }
+
+        #root {
+          display: block !important;
+          height: auto !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+
+        /* Hide all non-printable elements */
+        .no-print, .no-print * {
+          display: none !important;
+        }
+
+        /* Show the printable area and force it to fill the page */
+        .print-only {
+          display: block !important;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 210mm;
+          height: 297mm;
+          z-index: 99999;
+          background: white !important;
+        }
+        
+        /* Force color printing */
+        * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            color-adjust: exact !important;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
